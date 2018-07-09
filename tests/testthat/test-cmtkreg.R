@@ -56,6 +56,8 @@ test_that("(is.)cmtkreg works ok for files", {
 
 test_that("we can plot a CMTK registration",{
   skip_on_cran()
-  plot3d(cmtkreg('testdata/cmtk/FCWB_JFRC2_01_warp_level-01.list/'))
+  expect_gt(length(plot3d(
+    cmtkreg('testdata/cmtk/FCWB_JFRC2_01_warp_level-01.list/'))),
+    1L)
   clear3d()
 })
