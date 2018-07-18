@@ -1020,6 +1020,7 @@ test_that("we can write a neuron to vtk format", {
                    Parent=c(-1,1:4,3))
   testn=as.neuron(testd)
   tf <- tempfile(fileext = '.vtk')
-  write.vtk(testn, tf)
-  readLines(tf)
+  # nb need to set explicit title as otherwise includes timestamp
+  expect_null(write.vtk(testn, tf, title='testn.vtk'))
+  expect_known_value(readLines(tf), 'testdata/neuron/testn.vtk')
 })
