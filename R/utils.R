@@ -19,7 +19,7 @@ no_internet <- function() {
 
   internet.ok = identical(
     try(httr::status_code(
-      httr::HEAD("http://flybrain.mrc-lmb.cam.ac.uk/", httr::timeout(2))),
+      httr::HEAD("http://google.com/", httr::timeout(2))),
       silent = TRUE),
     200L)
   
